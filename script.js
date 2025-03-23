@@ -3,7 +3,7 @@ document.getElementById('fileInput').addEventListener('change', (e) => {
     const reader = new FileReader();
 
     reader.onload = () => {
-        renzoku(reader.result.split(/\s+/))
+        main(reader.result.split(/\s+/))
     };
 
     reader.readAsText(file);
@@ -15,10 +15,10 @@ function renzoku(data) {
         if (keys[data[i]] !== undefined) {
             if (keys[data[i]][data[i + 1]] !== undefined) {
                 keys[data[i]][data[i + 1]] += 1
-            }else {
+            } else {
                 keys[data[i]][data[i + 1]] = 1
             }
-        }else {
+        } else {
             keys[data[i]] = {}
             keys[data[i]][data[i + 1]] = 1
         }
